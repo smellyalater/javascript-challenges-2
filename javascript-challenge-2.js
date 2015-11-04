@@ -41,17 +41,36 @@ Note: To do this one, read up on the jQuery .submit() handler https://api.jquery
 
 //<AMC>No idea how to get this to work. So frusturating.
 
-//On submit, the form captures the birth year. 
-$('#form-submit').submit(function (event) {
-var year = $('#entered-year').val();//is this .value() or .val()?
-event.preventDefault();
-});
-//Then a function subtracts 2015 - birth year.
- var age = 2015 - year;
+// //On submit, the form captures the birth year. 
+// $('#form-submit').submit(function (event) {
+// var year = $('#entered-year').val();//is this .value() or .val()
+// event.preventDefault();
+// });
+// //Then a function subtracts 2015 - birth year.
+//  var age = 2015 - year;
+// //Then we say that the person is xx years old. 
+// $('#put-age-in-here').text("This person is " + age + " years old.");
+
+
+
+$(document).ready(function() {
+
+//On submit
+$('#age-form').submit(function(event) {
+	event.preventDefault();
+//get the birth year from the form value
+var birthYear = $('#birth-year').val();
+console.log(birthYear)
+//subtract birthyear from 2015
+var age = 2015 - birthYear;
 //Then we say that the person is xx years old. 
-$('#put-age-in-here').text("This person is " + age + " years old.");
+$('#put-age-in-here').text("You are " + age + " years old.");
+});
 
 
 
 
 
+
+
+});
